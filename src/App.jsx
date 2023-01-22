@@ -81,9 +81,10 @@ function App(){
 
 
   return (
-    <div className="bg-info min-vh-100 text-white">
+    <div className="bg-info w-100 min-vh-100 text-white">
       <div className="text-center">
         <h2>Drum Machine</h2>
+        <div className="w-40">
         {
           audioClips.map(clip => (
             <Pad 
@@ -94,6 +95,7 @@ function App(){
             />
           ))
         }
+        </div>
         <br />
         <h4>Volume</h4>
         <input 
