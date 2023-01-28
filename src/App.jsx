@@ -81,10 +81,9 @@ function App(){
 
 
   return (
-    <div className="bg-info w-100 min-vh-100 text-white">
-      <div className="text-center">
+    <div id="drum-machine" className="text-center bg-info w-100 min-vh-100 text-white">
         <h2>Drum Machine</h2>
-        <div className="w-40">
+        <div className="w-30">
         {
           audioClips.map(clip => (
             <Pad 
@@ -99,6 +98,7 @@ function App(){
         <br />
         <h4>Volume</h4>
         <input 
+          id="display"
           type={"range"}
           step ="0.01"
           onChange={(e) => setVolume(e.target.value)}
@@ -109,7 +109,7 @@ function App(){
           />
           <h3>{recording}</h3>
           {
-            recording && (
+            (
             <>
               <button onClick={playRecording} className="btn btn-success m-4">Play</button>
               <button onClick={() => setRecording("")} className="btn btn-danger m-4">Clear</button>
@@ -126,7 +126,6 @@ function App(){
               />
             </>
           )}
-      </div>
     </div>
   )
 }
@@ -159,8 +158,9 @@ function Pad({clip , volume , setRecording}) {
 
   return (
     <div
+      id="#1"
       onClick={playSound}
-      className={`btn btn-secondary p-4 m-3 ${active && "btn-warning"}`}
+      className={`drum-pad btn btn-secondary p-4 m-3 ${active && "btn-warning"}`}
     >
       <audio className="clip" id={clip.keyTrigger} src={clip.url} />
       {clip.keyTrigger}
